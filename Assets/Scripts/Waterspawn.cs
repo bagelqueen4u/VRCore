@@ -6,10 +6,6 @@ public class Waterspawn : MonoBehaviour
 {
     [SerializeField] bool toggle = false;
     [SerializeField] ParticleSystem _particleSystem;
-    void Start()
-    {
-        
-    }
 
     // Update is called once per frame
     void Update()

@@ -6,7 +6,7 @@ public class Move : MonoBehaviour
 {
     // Start is called before the first frame update
     // change your serial port
-    SerialPort sp = new SerialPort("COM3", 9600);
+    SerialPort sp = new SerialPort("COM4", 9600);
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +22,7 @@ public class Move : MonoBehaviour
         {
             try
             {
+                print(sp.ReadByte());
                 // When left button is pushed
                 if (sp.ReadByte() == 1)
                 {
@@ -29,7 +30,7 @@ public class Move : MonoBehaviour
                     transform.Translate(Vector3.left * Time.deltaTime * 5);
                 }
                 // When right button is pushed
-                if (sp.ReadByte() == 2)
+                if (sp.ReadByte() == 50)
                 {
                     print(sp.ReadByte());
                     transform.Translate(Vector3.right * Time.deltaTime * 5);
