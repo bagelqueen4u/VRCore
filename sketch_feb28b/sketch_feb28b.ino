@@ -40,7 +40,7 @@ void loop(){
   
   // Every 500 ms, print the value of the capacitive sensor
   if ( (millis() % 500) == 0){
-    Serial.print("Capacitive Sensor reads: ");
+    Serial.println("Capacitive Sensor reads: ");
     Serial.println(readCapacitivePin(capSensePin));
   }
 }
