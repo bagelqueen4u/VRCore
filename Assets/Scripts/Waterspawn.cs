@@ -29,22 +29,18 @@ public class Waterspawn : MonoBehaviour
             try
             {
                 // When left button is pushed
-                if (sp.ReadByte() == 48 && toggle)
+                if (sp.ReadByte() == 0)
                 {
-                    if (_particleSystem.isPlaying)
-                    {
-                        toggle = false;
-                        _particleSystem.Stop();
-                    }
+                    toggle = false;
+                    //clear the particles so that we can resume play from start when the system is set to play
+                    _particleSystem.Clear();
+                    _particleSystem.Stop();
                 }
                 // When right button is pushed
-                if (sp.ReadByte() == 49 && !toggle)
+                if (sp.ReadByte() == 1)
                 {
-                    if (!_particleSystem.isPlaying)
-                    {
-                        toggle = true;
-                        _particleSystem.Play();
-                    }
+                    toggle = true;
+                    _particleSystem.Play();
                 }
             }
             catch (System.Exception)

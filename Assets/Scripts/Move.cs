@@ -9,7 +9,6 @@ public class Move : MonoBehaviour
     SerialPort sp = new SerialPort("COM4", 9600);
     [SerializeField] Rigidbody rb;
     [SerializeField] float moveForce = 5f;
-    [SerializeField] Animation animation;
     // Start is called before the first frame update
     void Start()
     {
@@ -33,11 +32,7 @@ public class Move : MonoBehaviour
                     {
                         return;
                     }
-                    if (null == animation)
-                    {
-                        return;
-                    }
-                    rb.AddForce(transform.up * moveForce);
+                    rb.AddForce(Vector3.up * moveForce);
 /*                    if(!animation.isPlaying)
                     {
                         animation.Play();
@@ -47,10 +42,6 @@ public class Move : MonoBehaviour
                 }
                 else
                 {
-                    if (null == animation)
-                    {
-                        return;
-                    }
 /*                    if(animation.isPlaying) 
                     {
                         animation.Stop();
