@@ -43,7 +43,6 @@
  } 
 
  void loop() { 
-   //delay(100);
   // Read the current state of inputCLK
    currentStateCLK = digitalRead(inputCLK);
     
@@ -58,8 +57,7 @@
        digitalWrite(ledCW, LOW);
        digitalWrite(ledCCW, HIGH);
        faucetActive = false;
-        //Serial.println(1);
-       //delay(100);
+      
      } 
      else 
      {
@@ -68,16 +66,16 @@
        encdir ="CW";
        digitalWrite(ledCW, HIGH);
        digitalWrite(ledCCW, LOW);
-      //Serial.println(2);
-      //delay(100);
+       faucetActive = true;
+      
 
      }
-     Serial.flush();
-    Serial.println(1);
-//     Serial.print("Direction: ");
-//     Serial.print(encdir);
-//     Serial.print(" -- Value: ");
-//     Serial.println(counter);
+     if((millis() % 500) != 0)
+     {
+      Serial.flush();
+      Serial.write(faucetActive);
+     }
+   
    } 
    // Update previousStateCLK with the current state
    previousStateCLK = currentStateCLK; 
